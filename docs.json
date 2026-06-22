@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "almond",
-  "name": "Product Guide",
+  "name": "Multic Studio Product Guide",
   "description": "Step-by-step guides for every product—platform setup, analytics, and integrations in one place.",
   "colors": {
     "primary": "#166E3F",
@@ -29,7 +29,7 @@
         {
           "anchor": "Changelog",
           "icon": "scroll-text",
-          "href": "https://www.mintlify.com/docs/changelog"
+          "href": "https://studio.multic.com/release-notes"
         },
         {
           "anchor": "Help",
