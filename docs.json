@@ -73,11 +73,15 @@
           "integrations/connectors/crm",
           "integrations/webhooks/configure"
         ]
+      },
+      {
+        "group": "Untitled Group",
+        "pages": []
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
+    "light": "/images/light.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
