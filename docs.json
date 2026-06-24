@@ -5,8 +5,8 @@
   "description": "Step-by-step guides for every product - platform setup, analytics, and integrations in one place.",
   "colors": {
     "primary": "#FEDD00",
-    "light": "#FEDD00",
-    "dark": "#FEDD00"
+    "light": "#D2A905",
+    "dark": "#D2A905"
   },
   "favicon": {
     "light": "/images/faviconwhite.png",
@@ -115,5 +115,9 @@
       "family": "Inter",
       "weight": 300
     }
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": true
   }
 }
