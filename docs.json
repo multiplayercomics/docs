@@ -1,25 +1,27 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "linden",
-  "name": "Multic Studio Product Guide",
-  "description": "Step-by-step guides for every product - platform setup, analytics, and integrations in one place.",
+  "name": "Multic docs",
+  "description": "Working public documentation for making and playing interactive comics with Multic.",
   "colors": {
-    "primary": "#FEDD00",
-    "light": "#D2A905",
-    "dark": "#D2A905"
+    "primary": "#806A00",
+    "light": "#FEDD00",
+    "dark": "#806A00"
   },
-  "favicon": {
-    "light": "/images/faviconwhite.png",
-    "dark": "/images/faviconblack.png"
+  "favicon": "/favicon.ico",
+  "logo": {
+    "light": "/images/light.svg",
+    "dark": "/images/dark.svg"
   },
   "icons": {
     "library": "lucide"
   },
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
   "styling": {
     "eyebrows": "section"
-  },
-  "contextual": {
-    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
   },
   "navigation": {
     "global": {
@@ -28,81 +30,60 @@
           "anchor": "Home",
           "icon": "house",
           "href": "/"
-        },
-        {
-          "anchor": "Changelog",
-          "icon": "scroll-text",
-          "href": "https://studio.multic.com/release-notes"
-        },
-        {
-          "anchor": "Help",
-          "icon": "life-buoy",
-          "href": "https://www.mintlify.com/docs/contact-support"
         }
       ]
     },
-    "directory": "card",
     "groups": [
       {
-        "group": "Platform",
-        "icon": "layers",
+        "group": "Start here",
+        "icon": "route",
         "expanded": true,
         "pages": [
-          "platform/quickstart",
-          "platform/key-concepts",
-          "platform/configuration/settings",
-          "platform/configuration/user-management",
-          "platform/administration/roles-permissions"
+          "getting-started/what-is-a-multic"
         ]
       },
       {
-        "group": "Analytics",
-        "icon": "chart-bar",
+        "group": "Core concepts",
+        "icon": "shapes",
         "expanded": true,
         "pages": [
-          "analytics/quickstart",
-          "analytics/connect-data",
-          "analytics/dashboards/create-dashboard",
-          "analytics/reports/scheduled-reports"
+          "concepts/group-play"
         ]
-      },
-      {
-        "group": "Integrations",
-        "icon": "plug",
-        "expanded": true,
-        "pages": [
-          "integrations/quickstart",
-          "integrations/authentication",
-          "integrations/connectors/crm",
-          "integrations/webhooks/configure"
-        ]
-      },
-      {
-        "group": "Untitled Group",
-        "pages": []
       }
     ]
-  },
-  "logo": {
-    "light": "/images/light.svg",
-    "dark": "/images/dark.svg"
   },
   "navbar": {
     "links": [],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open Studio",
+      "href": "https://studio.multic.com"
     }
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/yourcompany",
-      "linkedin": "https://linkedin.com/company/yourcompany"
+  "contextual": {
+    "options": ["copy", "view"]
+  },
+  "search": {
+    "prompt": "Search Multic docs..."
+  },
+  "metadata": {
+    "timestamp": true
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "robots": "noindex, nofollow",
+      "googlebot": "noindex, nofollow"
     }
+  },
+  "banner": {
+    "content": "Working preview — product and tone review are still in progress.",
+    "dismissible": false,
+    "type": "warning"
   },
   "background": {
     "color": {
+      "light": "#FFFEF5",
       "dark": "#0A0A0A"
     }
   },
@@ -113,11 +94,7 @@
     },
     "body": {
       "family": "Inter",
-      "weight": 300
+      "weight": 400
     }
-  },
-  "appearance": {
-    "default": "dark",
-    "strict": true
   }
 }

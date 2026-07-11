@@ -1,0 +1,145 @@
+---
+title: "Group play"
+description: "How creators author player slots, Ready points, Shared choices, Showdowns, AI seats, observers, and timeouts."
+noindex: true
+knowledge_id: public.concepts.group-play
+status: pending_human_review
+confidence: medium
+owner: Jake Dickson
+last_updated: "2026-07-11"
+last_verified: "2026-07-11"
+review_after: "2026-08-10"
+tone_review: pending
+authorship:
+  human:
+    - name: Jake Dickson
+      role: product direction and editorial owner
+  agents:
+    - name: OpenAI Codex
+      role: implementation review and editorial draft
+---
+
+Group play is part of the story's design. A creator declares who can take part,
+where players wait for one another, and when their decisions converge or split.
+Adding a second phone does not turn a solo story into a coherent multiplayer
+one by itself.
+
+<Note>
+  This page describes the current authoring and runtime contract on the preview
+  branch. It is not a launch announcement or a claim that group play has passed
+  production device testing.
+</Note>
+
+## Start with player slots
+
+A story can declare a stable set of **player slots**. Each slot has an ID and
+can carry a label, colour, and role that Studio uses throughout the graph. With
+no declared slots, the story uses one implicit solo slot named `self`.
+
+A creator can configure a seat as:
+
+- **Human** — a player takes that role.
+- **AI easy, medium, or hard** — the runtime can operate the seat through the
+  corresponding AI profile.
+- **Observer-only** — the slot is present for watching rather than normal
+  playable participation.
+
+Slot IDs are the durable authoring primitive. Ready points, choices, routes,
+and Showdowns refer to those IDs instead of relying on whoever happens to join
+first.
+
+## Bring the group together with Ready
+
+A Frame can act as a barrier for every playable slot or for a named subset.
+There are two ways to release it:
+
+- **Arrival sync** — reaching the Frame counts as ready. The group continues
+  when every required slot arrives.
+- **Explicit Ready** — reaching the Frame is not enough. Each required player
+  selects a creator-labelled button, which defaults to **Ready**.
+
+The creator can add an auto-release timeout. Without one, the barrier waits for
+every required slot. With one, the story can continue when the timer expires so
+an absent player does not hold the group indefinitely.
+
+## Resolve a Shared choice together or split
+
+A **Shared choice** can wait for all required slots to submit a pick before it
+resolves. The creator then chooses one of two shapes:
+
+<Columns cols={2}>
+  <Card title="Together" icon="merge">
+    Resolve the submitted picks to one option, then send the group down the
+    same route. The creator chooses how disagreement is settled, such as a
+    majority, unanimity with a tiebreak, precedence, or seeded chance.
+  </Card>
+  <Card title="Split" icon="split">
+    Route slots independently. Each player can follow their own pick, or the
+    story can assign the available routes by a seeded random or weighted rule.
+  </Card>
+</Columns>
+
+Shared choices can target all slots or a named subset. They can also have an
+auto-resolve timeout, so a missing pick does not have to stall the story. The
+timeout is authored for that choice; it is not a single global multiplayer
+setting.
+
+## Route a Showdown by outcome
+
+A **Showdown** is a group-play mode on an **Action Sequence**. It collects a
+score from each required slot, compares those scores using an authored outcome
+model, and routes the result through named paths.
+
+The current outcome models are:
+
+- **Win / draw / lose** — the highest score wins; a tied highest score draws.
+- **Ranked** — route each slot by placement, such as first or second.
+- **Threshold** — compare scores with a minimum and route through pass or fail;
+  the creator chooses how many players must clear the bar for the group to pass.
+
+The creator connects each outcome to a route. A route can also be scoped to a
+specific slot, which lets the same Showdown send different players to different
+parts of the graph.
+
+A Showdown can wait for every required score or resolve after its own timeout.
+When an expected participant is absent, the realtime authority can provide a
+deterministic AI takeover score. The automated contract refuses to replace a
+present human player.
+
+## Treat timeouts as story decisions
+
+Ready barriers, Shared choices, and Showdowns each own their timeout. A timeout
+keeps the session moving, but it also changes what “everyone participated”
+means. Set it because the scene has a deliberate fallback, not because every
+multiplayer mechanic should eventually give up.
+
+AI seats and observer-only slots are authored at story level. A Showdown AI
+takeover is different: it is a runtime fallback for a missing required
+participant. Keeping those concepts separate makes replays and outcome routes
+explainable.
+
+## What has been verified
+
+This page was checked on July 11, 2026 against:
+
+- Studio source at `3448cf7d`, including story slots, Frame barriers, Shared
+  choice controls, Showdown configuration, and outcome-scoped edges;
+- realtime implementation commit `4ac055d6`;
+- targeted automated suites in
+  `apps/web/tests/unit/realtime-actions-scenarios.test.ts`,
+  `packages/story-core/src/session/realtime-coordination.test.ts`,
+  `apps/mobile/tests/convex/playSessions.test.ts`, and
+  `apps/mobile/tests/convex/realtimeAuthority.test.ts`.
+
+That evidence verifies the authored data model, editor controls, deterministic
+resolution rules, and automated transport/server contracts described above.
+
+<Warning>
+  Physical-device feel, multi-phone latency and dropout behaviour, and the
+  production deployment have not been verified in this documentation pass.
+  Those remain manual checks. Do not read this page as a production-quality or
+  availability guarantee.
+</Warning>
+
+Return to [What is a Multic?](/getting-started/what-is-a-multic) for the wider
+mental model.

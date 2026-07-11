@@ -1,58 +1,94 @@
-# Documentation project instructions
+# Public documentation project instructions
 
-## About this project
+## What this repository is
 
-- This is the documentation site for **Multic** — where you make and play
-  interactive comics. Built on [Mintlify](https://mintlify.com).
-- Pages are MDX files with YAML frontmatter. Configuration lives in `docs.json`.
-- Run `mint dev` to preview locally. Run `mint broken-links` to check links.
-- **All doc work happens on the `dev` branch.** `main` auto-deploys to
-  docs.multic.com. Nothing reaches `main` without a human-reviewed PR.
-- For Mintlify product knowledge (components, configuration), install the
-  Mintlify skill: `npx skills add https://mintlify.com/docs`.
+- This is the public documentation source for **Multic**, built with
+  [Mintlify](https://mintlify.com).
+- Pages are MDX with YAML frontmatter. Site configuration lives in `docs.json`.
+- This repository must not contain internal architecture, operations,
+  financials, unreleased plans, private research, or personal notes.
+- The separate private knowledge repository may mirror approved public pages.
+  Private material never flows back here without deliberate editorial review.
 
-## Voice & style — READ FIRST
+## Environments and branches
 
-**`STYLE.md` is canon.** Read it before writing or editing any page. It defines
-the voice (precise, clear, with measured play), the lexicon, the register map,
-and where play is allowed. If your draft conflicts with `STYLE.md`, `STYLE.md`
-wins.
+- `dev` is the working preview. Drafts and unverified pages belong here.
+- `main` is the production source for approved public documentation.
+- Nothing reaches `main` until Jake Dickson approves the affected pages. Surface
+  preview links and a concise page list in `#docs-validation` for that review.
+- Public docs are pre-launch. Keep the site `noindex` until Jake explicitly
+  approves publication and the production domain is ready.
 
-The worked bar is `getting-started/what-is-a-multic.mdx` — match its quality.
+## Start with evidence
 
-## Terminology (non-negotiable)
+Before documenting behaviour, inspect the current product or its source. Link
+the evidence in the pull request or validation message. Do not turn a roadmap,
+plan, old screenshot, or another doc into a product claim without checking it.
 
-- The content unit is **a Multic** (capitalised, countable). Never "video",
-  "content", or "experience".
-- You **make** Multics in **Studio**; people **play** them in the **Player**.
-- The author is a **creator**; the audience is a **reader** (solo) or **player**
-  (interactive/multiplayer).
-- Node names are capitalised: **Frame**, **Dialogue**, **Narration**, **Choice**,
-  **QTE**.
-- Full lexicon and banned words: see `STYLE.md`.
+When evidence conflicts with a page, the evidence wins. Update the page and its
+currentness metadata in the same change.
 
-## Style preferences
+## Voice and vocabulary
 
-- Active voice, second person ("you"), present tense.
-- Sentence case headings.
-- Bold for UI elements (Open **Manage**); code formatting for files/paths/values.
-- One idea per sentence; lead with the point.
-- Avoid "simply", "just", "easily", "powerful", "seamless", "magic".
+Read `STYLE.md` before writing. It is an evolving editorial guide, not immutable
+canon. Use it as the current working bar, then raise questions when the product,
+audience, or a better sentence calls for a change.
 
-## Content boundaries
+Current preferred terms include **a Multic**, **Studio**, creator, reader, and
+player. Treat those terms as deliberate defaults rather than laws. If the live
+product uses different language, flag the mismatch and resolve it instead of
+papering over it.
 
-- This repo is **external/public** documentation only. Internal architecture,
-  ops, billing internals, GTM, and demo playbooks live in the **separate private
-  internal docs** — never put "our eyes only" material here.
-- Don't document unreleased or internal-only features in public pages.
+## Required page metadata
 
-## How machine-assisted edits work
+Every public MDX page carries custom metadata in addition to `title` and
+`description`:
 
-Docs are tiered (see `STYLE.md` → "How this stays handcrafted"):
-- **Generated** (changelog, node/API reference, model & credit tables) may
-  auto-commit to `dev`.
-- **Assisted** feature pages: open a **draft PR** on `dev`; a human edits for
-  voice and merges.
-- **Handcrafted** voice-bearing pages: human/agent author, review required.
+```yaml
+knowledge_id: public.area.page-name
+status: pending_human_review
+confidence: medium
+owner: Jake Dickson
+last_updated: "YYYY-MM-DD"
+last_verified: null
+review_after: null
+tone_review: pending
+authorship:
+  human:
+    - name: Jake Dickson
+      role: product direction
+  agents:
+    - name: OpenAI Codex
+      role: editorial draft
+```
 
-Always run `mint broken-links` before committing.
+Use a stable `knowledge_id`; do not change it when a file moves. Allowed status
+values are `draft`, `pending_human_review`, `approved`, `stale`, and `retired`.
+Allowed confidence values are `low`, `medium`, and `high`.
+
+`last_verified` means the product claim was checked against current evidence on
+that date. Leave it `null` when it was not checked. `review_after` is a review
+trigger, not an expiry date: passing it makes a page due for review, not
+automatically false.
+
+Authorship must describe what happened. Name meaningful human direction,
+writing, editing, and approval. Name material agent assistance and its role. Do
+not manufacture a human byline for an agent-written draft, and do not erase the
+human behind the product direction.
+
+See `EDITORIAL.md` for the lifecycle, approval, and mirroring contract.
+
+## Workflow
+
+1. Read `docs.json`, `STYLE.md`, `EDITORIAL.md`, and nearby pages.
+2. Establish current evidence for every behavioural claim.
+3. Write the smallest page that solves the reader's problem. Mark uncertainty
+   with an MDX TODO comment rather than guessing.
+4. Update navigation and metadata together.
+5. Run `mint validate`, `mint broken-links`, and `mint a11y`.
+6. Report changed pages, evidence, unresolved questions, and preview links in
+   `#docs-validation`.
+7. Jake approves the public wording before it enters `main`.
+
+For current Mintlify components and configuration, use the official Mintlify
+documentation skill (`npx skills add https://mintlify.com/docs`).

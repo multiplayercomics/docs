@@ -1,146 +1,158 @@
-# Multic documentation — voice & style guide
+# Multic documentation — evolving editorial guide
 
-This is the source of truth for how Multic's documentation reads. Every page —
-handcrafted or machine-assisted — is measured against it. If a sentence breaks a
-rule here, the rule wins.
+This is the current working guide for public Multic documentation. It is a
+review rubric, not a constitution. Product evidence, reader comprehension, and
+good editorial judgment can change it.
 
----
+When you improve the voice or vocabulary, update this guide and the affected
+pages together. Record the change in the validation note so Jake can judge the
+direction rather than silently inheriting it.
 
-## What Multic is (say it the same way every time)
+## The current one-line description
 
 Multic is where you **make and play interactive comics** — branching, animated,
 voiced, and playable with friends.
 
-- The thing you create is **a Multic** (always capitalised, always countable —
-  "make a Multic", "publish your first Multic", "play a Multic"). It is never a
-  "video", "story-video", "piece of content", or "experience".
-- You create in **Studio** (on the web). People read and play in the **Player**
-  (on their phone).
-- The person making a Multic is a **creator**. The person playing one is a
-  **reader** (solo) or a **player** (when it's interactive or multiplayer).
+That sentence is a working description, not a promise that every capability is
+available in every product surface. Verify feature-level claims before
+publication.
 
-Hold this line everywhere. The noun is the brand.
+## Working vocabulary
 
----
+- The thing a creator makes is **a Multic**: capitalised and countable.
+- Creators make Multics in **Studio**.
+- A **reader** reads a solo Multic; a **player** takes part when interaction or
+  multiplayer is relevant.
+- Current mechanic names include **Frame**, **Dialogue**, **Narration**,
+  **Choice**, and **QTE**.
 
-## Voice: precise, clear, with measured play
+Prefer the product's real labels over this list. When the interface and the
+guide disagree, flag the mismatch and decide which one should change.
 
-Three principles, in priority order. When they conflict, the higher one wins.
+## Voice: intelligent, authoritative, open-minded
 
-### 1. Clarity first
-Every sentence earns its place. One idea per sentence. The reader always knows
-what to do next. If a paragraph doesn't help the reader act or understand, cut
-it.
+The docs should know what they know, say what they do not, and help the reader
+move. Three principles guide the voice.
 
-### 2. Precise, never stiff
-Concrete nouns, real verbs, exact names. Use the product's own terms (**Frame**,
-**Choice**, **QTE**, **Design Canvas**) rather than vague paraphrases. No hype,
-no filler, no hedging.
+### Clarity first
 
-### 3. Play with intent
-A light touch of personality — at the **edges**, never in the load-bearing
-middle. Play serves momentum and warmth; it never serves the writer's amusement.
-A reader who is stuck or paying us money should never have to wade through a joke
-to find the answer.
+Every sentence earns its place. Lead with the answer or action. Keep one main
+idea in each paragraph. If a detail neither helps a reader act nor builds the
+right mental model, cut it.
 
----
+### Precise without becoming stiff
 
-## Where play is allowed (and where it is banned)
+Use concrete nouns, active verbs, exact UI labels, and real constraints. Prefer
+**Choice** to “interactive element” when Choice is what you mean. State
+uncertainty plainly rather than laundering it into confident prose.
 
-| Allowed — bring warmth here | Banned — keep it clean here |
+### Play with intent
+
+A little personality belongs at the edges: openers, transitions, empty states,
+and moments of success. Never put the joke between a stuck reader and the fix.
+
+| More warmth is useful | Keep it straight |
 | --- | --- |
-| Page and section openers | Numbered steps / procedures |
-| Transitions between ideas | Reference tables (nodes, models, credits) |
-| Empty states, success moments | Warnings, errors, billing, limits |
-| The occasional one-line aside | Anything a frustrated reader reads when stuck |
+| Concept and overview pages | Procedures and prerequisites |
+| Transitions and success moments | Warnings, errors, limits, and billing |
+| Carefully chosen asides | Reference tables and exact values |
 
-**Rule of thumb:** if the reader might be confused, scared, or out of credits,
-write it straight.
+## Match the register to the job
 
----
-
-## Register map (match the tone to the page)
-
-- **Concept / "what is" / overview pages** — warmest. A little evocative. This is
-  where a creator falls in love with the idea. Play allowed.
-- **How-to / step-by-step** — calm, precise, imperative. Lead with the action.
-  Minimal play.
-- **Reference (nodes, models, credits, API)** — terse and scannable. Zero play.
-- **Microcopy (empty/success/error states)** — this is where a *little* play pays
-  off most. One human line beats three neutral ones.
-
----
+- **Concept and overview:** warm, vivid, and concise. Build the mental model.
+- **How-to:** calm, direct, and imperative. Make the next action obvious.
+- **Reference:** terse and scannable. Remove personality that competes with
+  exactness.
+- **Troubleshooting:** empathetic but unsentimental. Diagnose first, then fix.
+- **Microcopy:** human and brief. One useful line beats three neutral ones.
 
 ## Mechanics
 
-- **Second person, active voice, present tense.** "You publish a Multic", not
-  "Multics can be published".
-- **Sentence case headings.** "Publish your first Multic", not "Publish Your
-  First Multic".
-- **Bold for UI elements:** Open **Manage**, then select **Publish**.
-- **Code formatting** for filenames, paths, values, and node/field names in
-  reference context: `docs.json`, `frame.aspectRatio`.
-- **Short paragraphs.** Lead with the point; support it after. Never bury the
-  action in the third sentence.
-- **One exclamation mark per page, maximum.** Usually zero.
-- Oxford comma. Em dashes sparingly. No emoji in body copy (sidebar icons are
-  fine).
+- Use second person, active voice, and present tense.
+- Use sentence case for headings.
+- Bold interface labels: Open **Manage**, then select **Publish**.
+- Use code formatting for filenames, paths, values, and fields.
+- Keep paragraphs short and make links descriptive out of context.
+- Use Oxford commas. Use em dashes and exclamation marks sparingly.
+- Do not use emoji as decoration in body copy.
+- Give images and media useful alt text. Do not encode meaning in colour alone.
 
----
+## Words that usually help
 
-## Words we use — and don't
+Prefer: make, create, generate (art), connect, branch, publish, play, read,
+together, creator, reader, player, Multic.
 
-**Use:** make, create, generate (art), wire (a branch), publish, play, read,
-together, creator, reader, player, Multic, credits.
+Be suspicious of:
 
-**Avoid:**
-- "user" when you mean *creator* or *reader* — name who it is.
-- "content", "asset" in reader-facing copy (fine in Studio/reference context).
-- "watch" for playing a Multic — they *play* or *read* it; it's interactive.
-- Hype words: "powerful", "seamless", "magic", "revolutionary", "effortless".
-- Crutch words: "simply", "just", "easily" — if it were simple we wouldn't be
-  documenting it.
+- “user” when creator, reader, or player is more exact;
+- “content” or “asset” in reader-facing prose when a concrete noun exists;
+- “watch” when the Multic asks someone to act;
+- hype such as “powerful”, “seamless”, “magic”, or “revolutionary”;
+- crutches such as “simply”, “just”, and “easily”;
+- generic conclusions that repeat the page without helping the reader continue.
 
----
+These are editorial prompts, not banned-word theatre. Use a suspicious word when
+it is the clearest accurate word, then be ready to explain why.
 
-## Worked examples
+## A small worked bar
 
-**Concept opener — warmth allowed**
-- ✅ "Every Multic starts with a frame and a question: what happens next?"
-- ❌ "Multic is a powerful platform that empowers creators to easily build
-  engaging interactive content."
+**Concept opener**
 
-**How-to — straight, no play**
-- ✅ "Open **Manage**, add cover art and a tagline, then select **Publish**.
-  Your Multic appears in the feed within a minute."
-- ❌ "Time for the fun part — let's get this baby out into the world! Smash that
-  **Publish** button and watch the magic happen."
+- Better: “Every Multic starts with a frame and a question: what happens next?”
+- Worse: “Multic is a powerful platform for seamless interactive content.”
 
-**Reference — terse, scannable**
-- ✅ "**Choice** — a branching point. Each option routes to a different node.
-  Up to six options per Choice."
-- ❌ "The Choice node is a really versatile tool that lets you create all sorts
-  of exciting branching possibilities for your players to enjoy."
+**Procedure**
 
----
+- Better: “Open **Manage**, add cover art and a tagline, then select
+  **Publish**.”
+- Worse: “Time for the fun part — smash that button and watch the magic happen.”
 
-## How this stays handcrafted even when machines help
+**Reference**
 
-Docs are tiered. Voice-bearing pages are written or edited by a human (or an
-agent held to this guide); only mechanical content auto-commits.
+- Better: “**Choice** — a branching point. Each option routes to another node.”
+- Worse: “The Choice node lets you create all sorts of exciting possibilities.”
 
-| Tier | Examples | Pipeline |
-| --- | --- | --- |
-| **Generated** | Changelog (from commits), node/API reference (from `story-core` types), model & credit tables (from `ai-models-config`) | Bot → `dev` → may auto-merge |
-| **Assisted** | Feature pages when behaviour changes | Agent opens a **draft PR** on `dev`; a human edits for voice and merges |
-| **Handcrafted** | Concept, getting-started, anything voice-bearing | Human/agent author; review required |
+The better examples demonstrate shape and restraint. They are not approved
+product claims until verified.
 
-Guardrails:
-1. **This file is canon.** `AGENTS.md` points every agent here.
-2. **Golden pages** (see `getting-started/what-is-a-multic.mdx`) are the worked
-   bar new pages are compared against.
-3. **A voice-lint review** runs on every docs PR — it scores changed `.mdx`
-   against this guide and the golden pages and flags off-voice prose before a
-   human approves.
-4. **No bot writes to `main`.** Drafts land as PRs on `dev`; the preview URL and
-   a human are the gate.
+## Human authorship and agent assistance
+
+Public documentation should retain human judgment without pretending agents did
+not contribute.
+
+- Voice-bearing pages need meaningful human direction or editing, a visible
+  human editorial owner, and explicit approval before production.
+- Agent-written or agent-revised material names the agent and its role in page
+  metadata.
+- Mechanical reference generation identifies its source and generator.
+- Approval alone is recorded as review, not retroactively relabelled as writing.
+- A compact public byline may omit process detail, but repository metadata keeps
+  the full provenance.
+
+Jake Dickson is the current human reviewer. A page can live on `dev` while his
+review is pending; it cannot become approved public truth on `main` without that
+review.
+
+## Currentness is part of the prose
+
+Every page has a status, confidence, last-updated date, evidence-backed
+last-verified date, and review trigger. A passed review date creates work. It
+does not make the page silently disappear or claim that the content is wrong.
+
+When a claim is uncertain, say so in the draft and take it to validation. Do not
+fill a blank with plausible product fiction.
+
+## How this guide evolves
+
+During review, ask:
+
+1. Is the page accurate today?
+2. Can the intended reader act or build the right mental model?
+3. Does it sound like an intelligent person rather than a template?
+4. Is the confidence proportional to the evidence?
+5. Does the authorship record match the work?
+6. Should this page change the guide?
+
+Tone review is a named metadata state: `pending`, `accepted`, or
+`needs_revision`. It belongs beside product verification rather than masquerading
+as automated truth.

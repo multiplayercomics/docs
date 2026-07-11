@@ -1,59 +1,106 @@
 ---
 title: "What is a Multic?"
-description: "The interactive comic you make in Studio and people play on their phone — solo or together."
+description: "The working mental model for an interactive comic made in Studio and played solo or together."
+noindex: true
+knowledge_id: public.getting-started.what-is-a-multic
+status: pending_human_review
+confidence: medium
+owner: Jake Dickson
+last_updated: "2026-07-11"
+last_verified: "2026-07-11"
+review_after: "2026-08-10"
+tone_review: pending
+authorship:
+  human:
+    - name: Jake Dickson
+      role: original direction and editorial owner
+  agents:
+    - name: OpenAI Codex
+      role: structure and editorial revision
 ---
 
 Every Multic starts with a frame and a question: what happens next?
 
-A **Multic** is an interactive comic. You generate the art, write the dialogue,
-and wire the choices — then publish it. Readers open it on their phone and play
-through, tapping to make decisions, hitting timed moments, and branching the
-story as they go. Some Multics they read alone. Some they play with friends, in
-the same scene at the same time.
+A **Multic** is an interactive comic. A creator combines art, dialogue,
+narration, and story mechanics, then connects them into something a reader can
+play. The result can move in a straight line, branch around a decision, or ask
+several people to take part in the same story.
 
-You make Multics in **Studio**. People play them in the **Player**.
+You make a Multic in **Studio**. Readers and players open it in Multic.
 
 ## The two sides
 
-<CardGroup cols={2}>
-  <Card title="Studio" icon="pen-nib" href="/getting-started/quickstart">
-    Where you create. Generate images and video, build your cast of characters,
-    and assemble the branching story on the canvas.
+<Columns cols={2}>
+  <Card title="Studio" icon="pen-nib">
+    Where a creator assembles the story: its cast, visual references, media,
+    words, mechanics, and connections.
   </Card>
-  <Card title="Player" icon="play" href="/players/playing-multics">
-    Where it's played. Your published Multic appears in the feed, ready to read
-    solo or play together on a phone.
+  <Card title="Play" icon="play">
+    Where a reader moves through the result, responds to its mechanics, and sees
+    what their choices change.
   </Card>
-</CardGroup>
+</Columns>
 
-## What goes into one
+## What gives a Multic its shape
 
-A Multic is built from a few kinds of pieces. You'll meet each in depth later —
-here's the shape of it:
+The current product vocabulary includes:
 
-- **Frames** — the panels readers see, each one an image or a short video.
-- **Dialogue and narration** — what your characters say, and the voice over the
-  top.
-- **Choices** — the branching points where the reader decides what happens next.
-- **QTEs and action sequences** — timed moments that ask the player to act, not
-  just watch.
-- **Characters and locations** — your reusable cast and settings, consistent
-  across every Multic in a universe.
+- **Frames** — the visual moments a reader sees.
+- **Dialogue and Narration** — character speech and the voice around it.
+- **Choices** — points where an answer can change the route through the story.
+- **QTEs** — single, timer-bound prompts layered over a frame. A QTE can route
+  through success, failure, or timeout.
+- **Action Sequences** — video or image sequences with several timed cues and
+  score-based exits. A cue can continue the sequence or route away from it.
 
-## Solo or together
+Those pieces are connected rather than poured into a fixed page. That connected
+structure is what lets the same Multic carry pacing, decisions, and different
+routes through its story.
 
-Most Multics are read alone. But a Multic can also be **played together**: two or
-more people drop into the same story, each with their own role, making choices
-that affect everyone in the scene. Group play is the part that makes a Multic feel
-less like a comic and more like a game you're inside.
+<Note>
+  A QTE and an Action Sequence are separate mechanics. An Action Sequence may
+  contain QTE-like timed cues, but it owns media, a cue timeline, and aggregate
+  score or outcome routes.
+</Note>
 
-## What's next
+## Characters, locations, and a universe
 
-<CardGroup cols={2}>
-  <Card title="Make your first Multic" icon="rocket" href="/getting-started/quickstart">
-    Go from a blank canvas to a published Multic in one sitting.
-  </Card>
-  <Card title="Key concepts" icon="compass" href="/getting-started/key-concepts">
-    The mental model — canvas, nodes, characters, playback, and publishing.
-  </Card>
-</CardGroup>
+A character can belong to a **universe** and be reused across the stories in
+that universe. Studio keeps that character's identity and visual references as
+a reusable record rather than asking you to rebuild the character in each
+story.
+
+Locations do not yet work as an equivalent first-class reusable library.
+Creators can develop a location as a visual concept or reference and use a
+location in story context and state, but the current product does not promise a
+character-style location record shared across a universe.
+
+## Solo and group play
+
+A Multic can be read alone. Multics designed for group play can also give
+several people authored slots in the same story. Slots can take different
+routes, wait at a **Ready** point, resolve a **Shared choice** together or
+separately, and compete or cooperate through a **Showdown**.
+
+This is still a comic, but it borrows useful things from games: state, timing,
+agency, and the possibility that another person changes the scene before you do.
+
+<Card title="How group play is authored" icon="users" href="/concepts/group-play">
+  Understand player slots, Ready points, Shared choices, Showdowns, AI seats,
+  observers, and timeout behaviour.
+</Card>
+
+## Where the guide goes next
+
+This public guide is being rebuilt from the product outward. The next pages will
+cover creating a first Multic, the Studio mental model, playback, and publishing
+after each workflow has been checked against the current product.
+
+<Note>
+  **Verification scope:** Product concepts on this page were checked on July 11,
+  2026 against Studio at `3448cf7d` and the realtime implementation at
+  `4ac055d6`, including targeted automated scenarios. Physical-device feel,
+  multi-phone latency and dropout behaviour, and production deployment remain
+  manual and unverified. This AI-assisted revision is still pending human and
+  tone review, so it remains a noindex preview rather than launched guidance.
+</Note>
